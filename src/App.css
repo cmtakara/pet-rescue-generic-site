@@ -1,3 +1,12 @@
+.flex-cont {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row {
+  padding: 10px;
+}
+
 #highlight-container {
   margin: 20px;
   width: 75%;

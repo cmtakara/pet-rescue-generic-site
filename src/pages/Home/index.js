@@ -14,7 +14,7 @@ const Home = () => {
             <HighlightStory />
 
             <h2>Contact Us </h2>
-            <GeneralContact />
+            {/* <GeneralContact /> */}
 
             <ContactUs />
 
