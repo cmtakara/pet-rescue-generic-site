@@ -12,6 +12,7 @@ const Login = ({ setUser }) => {
         setUser(e.target.usr.value)
     }
 
+        // does not exist
     // console.log('in login user is ', user)
 
     return (
