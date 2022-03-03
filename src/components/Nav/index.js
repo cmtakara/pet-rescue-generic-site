@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 
 const Nav = () => {
     return (
-        <nav>
-            <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav >
+            <div class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
                 <div class="container-fluid"> 
                 <Link class='navbar-brand' to='/'>Home</Link>
                 <div>
