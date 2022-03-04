@@ -111,7 +111,7 @@ const Cats = () => {
             {
                 availableCats.map((cat) => {
                     return (
-                        <div className="card animal-data"  style={{ width: '18rem' }}>
+                        <div className="card animal-data"  style={{ width: '18rem' }} key={cat.id}>
                             <img src={cat.imageurl} className="animal-img" alt="..." />
                             <div className="card-body  overflow-auto" style={{ height: '18rem' }}>
                                 <h5 className="card-title">{cat.name}</h5>

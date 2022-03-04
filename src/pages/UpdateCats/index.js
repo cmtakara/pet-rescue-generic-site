@@ -9,7 +9,6 @@ const UpdateCats = () => {
             FORM TO UPDATE CATS
             <InputForm />
             <br></br>
-            <CatInfo />
         </div>
     );
 }

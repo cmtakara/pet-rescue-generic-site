@@ -11,16 +11,16 @@ const Nav = () => {
                         <li class="nav-item flex-row"><Link class="nav-link active" to='login'>Login</Link></li>
                         <li class="nav-item flex-row"><Link class="nav-link active" to='dogs'>Dogs</Link></li>
                         <li class="nav-item flex-row"><Link class="nav-link active" to='cats'>Cats</Link></li>
-                        <li class="nav-item flex-row dropdown">
+                        <li class="nav-item flex-row dropdown text-dark">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Get Involved
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="nav-item"><Link class="nav-link active" to='volunteer'>Volunteer</Link></li>
-                                <li class="nav-item"><Link class="nav-link active" to='foster'>Foster</Link></li>
+                                <li class="nav-item text-dark"><Link class="nav-link active text-dark" to='volunteer'>Volunteer</Link></li>
+                                <li class="nav-item"><Link class="nav-link active text-dark" to='foster'>Foster</Link></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li class="nav-item"><Link class="nav-link active" to='donate'>Donate</Link></li>
-                                <li class="nav-item"><Link class="nav-link" to='cat-list'>Cat List</Link></li>
+                                <li class="nav-item"><Link class="nav-link active text-dark" to='donate'>Donate</Link></li>
+                                <li class="nav-item"><Link class="nav-link text-dark" to='cat-list'>Cat List</Link></li>
                                 {/* <li class="nav-item"><Link class="nav-link disabled" to='cat-list'>Cat List</Link></li> */}
                             </ul>
                         </li>
