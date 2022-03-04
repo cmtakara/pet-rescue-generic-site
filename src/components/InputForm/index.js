@@ -46,8 +46,19 @@ const handleAdd = e => {
 }
 
 const addAnimal = async (newAnimal) => {
+    // header1 = {'Access-Control-Allow-Origin': '*'}
+    // config = {headers: header1}
+    console.log('in try ', `http://localhost:8080/api/v1/${petType}/add${petType}`, newAnimal, {
+        headers: {
+            // "Content-Type": "application/json",
+            // "Cookie": this.sessionid,
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length"
+        }
+    })
     try {
-        const response = await axios.post(`http://localhost:8080/api/v1/${petType}/add${petType}`, newAnimal)
+        const response = await axios.post(`http://localhost:8080/api/v1/${petType}/add${petType}`, newAnimal, {headers: {"Access-Control-Allow-Origin": "*"}} )
         fetchAnimals()
     } catch(err) {
         console.log(err)
