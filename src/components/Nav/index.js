@@ -18,9 +18,10 @@ const Nav = () => {
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li class="nav-item text-dark"><Link class="nav-link active text-dark" to='volunteer'>Volunteer</Link></li>
                                 <li class="nav-item"><Link class="nav-link active text-dark" to='foster'>Foster</Link></li>
-                                <li><hr class="dropdown-divider" /></li>
                                 <li class="nav-item"><Link class="nav-link active text-dark" to='donate'>Donate</Link></li>
+                                <li><hr class="dropdown-divider" /></li>
                                 <li class="nav-item"><Link class="nav-link text-dark" to='cat-list'>Cat List</Link></li>
+                                <li class="nav-item"><Link class="nav-link text-dark" to='dog-list'>Dog List</Link></li>
                                 {/* <li class="nav-item"><Link class="nav-link disabled" to='cat-list'>Cat List</Link></li> */}
                             </ul>
                         </li>

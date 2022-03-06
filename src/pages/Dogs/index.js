@@ -1,16 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios'
 
 import HighlightStory from "../../components/HighlightStory";
 import Footer from '../../components/Footer'
 
 const Dogs = () => {
+    const [availableDogs, setAvailableDogs] = useState([])
+
+    useEffect(() => {
+        fetchDogs()
+    }, [])
+
+    const fetchDogs = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/api/v1/dogs/alldogs')
+
+            console.log(response)
+            setAvailableDogs(response.data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
-        <div>
+        <div class='bg-secondary bg-gradient'>
             <h1>DOGS PAGE</h1>
             <HighlightStory />
-            <h1>*** Coming Soon ***</h1>
-            <h3>Then list avaialble dogs with images and descriptions</h3>
-            <h4>dogs objects - in an array - then access image and description but not other information</h4>
+            <h1>_______________</h1>
+
+            <div id="animal-container">
+            {
+                availableDogs.map((dog) => {
+                    return (
+                        <div className="card animal-data"  style={{ width: '18rem' }} key={dog.id}>
+                            <img src={dog.imageurl} className="animal-img" alt="..." />
+                            <div className="card-body  overflow-auto" style={{ height: '18rem' }}>
+                                <h5 className="card-title">{dog.name}</h5>
+                                <h6 className="card-title">{dog.age}</h6>
+                                <a href="" target="_blank" className="btn btn-primary">More Information</a>
+                            </div>
+                        </div>
+                    )
+                })
+
+            }
+            </div>
+
+            <h1>_______________</h1>
+
             <Footer />
         </div>
 

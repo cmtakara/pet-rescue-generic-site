@@ -13,6 +13,7 @@ import Donate from './pages/Donate'
 import Volunteer from './pages/Volunteer'
 import Foster from './pages/Foster'
 import UpdateCats from './pages/UpdateCats'
+import UpdateDogs from './pages/UpdateDogs'
 
 //contexts
 import UserContext from './contexts/UserContext'
@@ -41,6 +42,7 @@ function App() {
           <Route path='foster' element={<Foster />} />
           <Route path='donate' element={<Donate />} />
           <Route path='cat-list' element={ user === '' ? < Home/> : <UpdateCats />} />
+          <Route path='dog-list' element={ user === '' ? < Home/> : <UpdateDogs />} />
       </Routes>
 
 

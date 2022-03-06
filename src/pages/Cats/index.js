@@ -102,8 +102,6 @@ const Cats = () => {
     return (
         <div class='bg-secondary bg-gradient'>
             <HighlightStory />
-            
-            <h4>cats objects - in an array - then access image and description but not other information</h4>
 
             <h1>_______________</h1>
 
