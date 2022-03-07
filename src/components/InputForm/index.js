@@ -58,7 +58,7 @@ const InputForm = () => {
             }
         })
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/${petType}/add${petType}`, newAnimal, { headers: { "Access-Control-Allow-Origin": "*" } })
+            const response = await axios.post(`http://localhost:8080/api/v1/${petType}s/add${petType}`, newAnimal, { headers: { "Access-Control-Allow-Origin": "*" } })
             fetchAnimals()
         } catch (err) {
             console.log(err)
@@ -67,13 +67,18 @@ const InputForm = () => {
 
     const fetchAnimals = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/${petType}/all${petType}`)
+            const response = await axios.get(`http://localhost:8080/api/v1/${petType}s/all${petType}s`)
 
             console.log(response)
             setAvailableCats(response.data)
         } catch (err) {
             console.log(err)
         }
+    }
+
+    const displayAnimals = e => {
+        e.preventDefault()
+        fetchAnimals()
     }
 
     const handleSubmit = e => {
@@ -283,6 +288,50 @@ const InputForm = () => {
                 <form onSubmit={handleAdd}>
                     <button type="submit" class="btn btn-primary">Add</button>
                 </form>
+            </div>
+
+            <div>
+
+
+            <form onSubmit={displayAnimals}>
+                <label htmlFor="animalType" class="form-label">
+                        Choose cat or dog
+                        <select value={petType} onChange={handleTypeSelect}>
+                            <option value="cat">cat</option>
+                            <option value="dog">dog</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Display existing</button>
+            </form>
+
+
+            <table className="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Vetting</th>
+                        <th>image name</th>
+                        <th>image url</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        availableCats.map(animal => {
+                            return (
+                                <tr key={animal.id}>
+                                    <td data-label="Name">{animal.name}</td>
+                                    <td data-label="Age">{animal.age}</td>
+                                    <td data-label="Vetting">{animal.vetting}</td>
+                                    <td data-label="Image Name">{animal.imagename}</td>
+                                    <td data-label="Image URL">{animal.imageurl}</td>
+                                </tr>
+                            )
+                        })
+                    }
+
+                </tbody>
+            </table>
             </div>
         </div>
     );
