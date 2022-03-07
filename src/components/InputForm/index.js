@@ -11,7 +11,7 @@ const InputForm = () => {
     const [vetting, setVetting] = useState('N')
     const [ageUnit, setAgeUnit] = useState('')
     const [chip, setChip] = useState('N')
-    const [bonded, setBonded] = useState('')
+    const [bonded, setBonded] = useState('N')
     const [foster, setFoster] = useState('NONE')
     const [spayneuter, setSpayneuter] = useState('unknown')
     const [adoptionstatus, setAdoptionstatus] = useState('NONE')
@@ -48,17 +48,9 @@ const InputForm = () => {
     const addAnimal = async (newAnimal) => {
         // header1 = {'Access-Control-Allow-Origin': '*'}
         // config = {headers: header1}
-        console.log('in try ', `http://localhost:8080/api/v1/${petType}/add${petType}`, newAnimal, {
-            headers: {
-                // "Content-Type": "application/json",
-                // "Cookie": this.sessionid,
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length"
-            }
-        })
+        console.log('in try ', `http://localhost:8080/api/v1/${petType}s/add${petType}`, newAnimal)
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/${petType}s/add${petType}`, newAnimal, { headers: { "Access-Control-Allow-Origin": "*" } })
+            const response = await axios.post(`http://localhost:8080/api/v1/${petType}s/add${petType}`, newAnimal)
             fetchAnimals()
         } catch (err) {
             console.log(err)
@@ -205,9 +197,8 @@ const InputForm = () => {
                         </select>
                     </label>
                     <label htmlFor="bonded" class="form-label">
-                        Choose Y or N for bonded
+                        Choose Y or N for bonded 
                         <select value={bonded} onChange={handleBondedSelect}>
-                            <option value="">  </option>
                             <option value="Y">Y</option>
                             <option value="N">N</option>
                         </select>
