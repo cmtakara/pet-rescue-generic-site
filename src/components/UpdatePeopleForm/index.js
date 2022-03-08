@@ -30,6 +30,9 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
 
     const handleSubmit = e => {
         e.preventDefault()
+
+        const form = document.getElementById('input-form')
+
         const newPerson = {
             name: name,
             phone: phone,
@@ -55,6 +58,16 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
             addPerson(newPerson)
         }
 
+        form.reset()
+
+        // const [admin, setAdmin] = useState('N')
+        // const [updaterights, setUpdaterights] = useState('N')
+        // const [fosterstatus, setFosterstatus] = useState('NONE')
+        // const [volunteerstatus, setVolunteerstatus] = useState('NONE')
+        // const [adopterstatus, setAdopterstus] = useState('NONE')
+        // const [volunteertransport, setVolunteertransport] = useState('N')
+        // const [volunteerevents, setVolunteerevents] = useState('N')
+
     }
 
     const updatingPerson = async (newPerson, id) => {
@@ -72,7 +85,7 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
 
     return (
         <div className="ui centered grid bg-secondary bg-gradient">
-        <form className="ui form" id="form-container" onSubmit={handleSubmit}>
+        <form className="ui form" id="form-container" id='input-form' onSubmit={handleSubmit}>
             <div className="field">
                 <label className='ui left aligned container'>Name</label>
                 <input
@@ -87,8 +100,7 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
                 <input
                     type="text"
                     name="phone"
-                    placeholder="Phone Number"
-                    value = {editForm ? updatePerson.phone : ""}                    
+                    placeholder= {editForm ? updatePerson.phone : "Phone Number"}
                     onChange={e => setPhone(e.target.value)}
                 />
             </div>            
@@ -97,8 +109,7 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
                 <input
                     type="text"
                     name="email"
-                    placeholder="Email Address"
-                    value = {editForm ? updatePerson.email : ""}
+                    placeholder= {editForm ? updatePerson.email : "Email Address"}
                     onChange={e => setEmail(e.target.value)}
                 />
             </div>
@@ -107,8 +118,7 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
                 <input
                     type="text"
                     name="address"
-                    placeholder="Address"
-                    value = {editForm ? updatePerson.address : ""}
+                    placeholder = {editForm ? updatePerson.address : "Address"}
                     onChange={e => setAddress(e.target.value)}
                 />
             </div>
