@@ -1,12 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // import './styles.css'
 
 
-const UpdatePeopleForm = ({ addPerson, editForm }) => {
+const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updatePerson }) => {
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
     const [admin, setAdmin] = useState('N')
     const [updaterights, setUpdaterights] = useState('N')
     const [fosterstatus, setFosterstatus] = useState('NONE')
@@ -15,13 +17,23 @@ const UpdatePeopleForm = ({ addPerson, editForm }) => {
     const [volunteertransport, setVolunteertransport] = useState('N')
     const [volunteerevents, setVolunteerevents] = useState('N')
 
+    // const [updatePerson, setUpdatePerson] = useState({})
+
     // add all fields, ensure required fields are populated
     //required fields are: name, 
+
+    // <th>Name</th>
+    // <th>Phone Number</th>
+    // <th>Email Address</th>
+    // <th>Address</th>
+
 
     const handleSubmit = e => {
         e.preventDefault()
         const newPerson = {
             name: name,
+            phone: phone,
+            email: email,
             address: address,
             admin: admin,
             updaterights: updaterights,
@@ -32,139 +44,31 @@ const UpdatePeopleForm = ({ addPerson, editForm }) => {
             volunteerevents: volunteerevents
         }
     
-        addPerson(newPerson)
+        if (editForm) {
+            // updatePerson()
+            console.log("in edit and update id is ", updatePerson.id)
+            updatingPerson(newPerson, updatePerson.id)
+            setEditForm(false)
+            fetchPeople()
+            
+        } else {
+            addPerson(newPerson)
+        }
+
     }
 
+    const updatingPerson = async (newPerson, id) => {
+        try {
+            const response = await axios.put(`http://localhost:8080/api/v1/people/person/${id}`, newPerson)
 
-    //==========================================
-    // UPDATE FROM HERE
-    //==========================================
-    // const handleAdd = e => {
-    //     e.preventDefault()
-    //     console.log('in handleAdd')
-    //     console.log(animalToUpdate)
-    //     addAnimal(animalToUpdate)
-    // }
+            console.log(response)
+            // setPeople(response.data)
 
-    // const addAnimal = async (newAnimal) => {
-    //     // header1 = {'Access-Control-Allow-Origin': '*'}
-    //     // config = {headers: header1}
-    //     console.log('in try ', `http://localhost:8080/api/v1/${petType}s/add${petType}`, newAnimal)
-    //     try {
-    //         const response = await axios.post(`http://localhost:8080/api/v1/${petType}s/add${petType}`, newAnimal)
-    //         fetchAnimals()
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
-    // const fetchAnimals = async () => {
-    //     try {
-    //         const response = await axios.get(`http://localhost:8080/api/v1/${petType}s/all${petType}s`)
-
-    //         console.log(response)
-    //         setAvailableCats(response.data)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
-    // const displayAnimals = e => {
-    //     e.preventDefault()
-    //     fetchAnimals()
-    // }
-
-    // const handleSubmit = e => {
-    //     let newAnimal = {}
-    //     e.preventDefault()
-
-    //     if (e.target.animalName.value.trim() !== '') {
-    //         newAnimal.name = e.target.animalName.value
-    //     } else {
-    //         newAnimal.name = "name is missing"
-    //     }
-    //     if (e.target.foster.value.trim() !== '') {
-    //         setFoster(e.target.foster.value)
-    //     }
-    //     else {
-    //         setFoster("NONE")
-    //     }
-
-    //     //   newAnimal.petType = petType
-    //     newAnimal.age = e.target.ageNum.value + ' ' + ageUnit
-    //     newAnimal.location = e.target.location.value
-    //     newAnimal.other = e.target.other.value
-    //     newAnimal.vetting = vetting
-    //     newAnimal.bonded = bonded
-    //     newAnimal.chip = chip
-    //     newAnimal.foster = foster
-    //     newAnimal.spayneuter = spayneuter
-    //     newAnimal.adoptionstatus = adoptionstatus
-    //     newAnimal.adopter = adopter
-    //     newAnimal.imagename = imagename
-    //     newAnimal.imageurl = e.target.imageurl.value
-    //     newAnimal.issues = issues
-    //     console.log(newAnimal)
-
-    //     // updating to work with created DB and backend means adding
-
-    //     // other - string (larger)
-    //     // adopter - string
-
-    //     //   setCatList([...catList, newAnimal])
-
-    //     setAnimalToUpdate(newAnimal)
-    //     setNewDisplay(JSON.stringify(newAnimal))
-    //     //   const catListJSON = JSON.stringify(catList);
-    //     //   console.log(catListJSON)
-
-    //     //  localStorage.setItem("catList", catListJSON)
-
-    // }
-
-    // const handleTypeSelect = e => {
-    //     console.log(e.target.value);
-    //     setPetType(e.target.value)
-
-    // }
-
-    // const handleVettingSelect = e => {
-    //     console.log(e.target.value);
-    //     setVetting(e.target.value)
-
-    // }
-
-    // const handleChipSelect = e => {
-    //     console.log(e.target.value);
-    //     setChip(e.target.value)
-
-    // }
-
-    // const handleBondedSelect = e => {
-    //     console.log(e.target.value);
-    //     setBonded(e.target.value)
-
-    // }
-
-    // const handleNeuterSelect = e => {
-    //     console.log(e.target.value);
-    //     setSpayneuter(e.target.value)
-
-    // }
-
-    // const handleAdoptionStatusSelect = e => {
-    //     console.log(e.target.value);
-    //     setAdoptionstatus(e.target.value)
-
-    // }
-
-    // const handleAgeSelect = e => {
-    //     console.log(e.target.value);
-    //     setAgeUnit(e.target.value)
-
-    // }
-
-    // console.log(catList)
 
     return (
         <div className="ui centered grid bg-secondary bg-gradient">
@@ -174,8 +78,28 @@ const UpdatePeopleForm = ({ addPerson, editForm }) => {
                 <input
                     type="text"
                     name="name"
-                    placeholder="Name"
+                    placeholder= {editForm ? updatePerson.name : "Name"}
                     onChange={e => setName(e.target.value)}
+                />
+            </div>
+            <div className="field">
+                <label className='ui left aligned container'>Phone Number</label>
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone Number"
+                    value = {editForm ? updatePerson.phone : ""}                    
+                    onChange={e => setPhone(e.target.value)}
+                />
+            </div>            
+            <div className="field">
+                <label className='ui left aligned container'>Email Address</label>
+                <input
+                    type="text"
+                    name="email"
+                    placeholder="Email Address"
+                    value = {editForm ? updatePerson.email : ""}
+                    onChange={e => setEmail(e.target.value)}
                 />
             </div>
             <div className="field">
@@ -184,6 +108,7 @@ const UpdatePeopleForm = ({ addPerson, editForm }) => {
                     type="text"
                     name="address"
                     placeholder="Address"
+                    value = {editForm ? updatePerson.address : ""}
                     onChange={e => setAddress(e.target.value)}
                 />
             </div>

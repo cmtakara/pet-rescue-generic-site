@@ -7,6 +7,7 @@ const UpdatePeople = () => {
 
     const [people, setPeople] = useState([])
     const [editForm, setEditForm] = useState(false)
+    const [updatePerson, setUpdatePerson] = useState({});
 
     useEffect(() => {
         fetchPeople()
@@ -46,7 +47,7 @@ const UpdatePeople = () => {
     return (
         <div>
             FORM TO UPDATE PEOPLE
-            <UpdatePeopleForm addPerson={addPerson} editForm={editForm}/>
+            <UpdatePeopleForm fetchPeople={fetchPeople} addPerson={addPerson} setEditForm={setEditForm} editForm={editForm} updatePerson={updatePerson}/>
             <br></br>
             
 
@@ -57,6 +58,8 @@ const UpdatePeople = () => {
                 <thead>
                     <tr>
                         <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Email Address</th>
                         <th>Address</th>
                         <th>Edit</th>
                     </tr>
@@ -68,11 +71,13 @@ const UpdatePeople = () => {
                             return (
                                 <tr key={person.id}>
                                     <td data-label="Name">{person.name}</td>
+                                    <td data-label="Phone Number">{person.phone}</td>
+                                    <td data-label="Email Address">{person.email}</td>
                                     <td data-label="Address">{person.address}</td>
                                     <td data-label="edit">
                                         <i 
                                             className="edit icon"
-                                            onClick={() => setEditForm(true)}
+                                            onClick={() => {setEditForm(true); setUpdatePerson(person)}}
                                         ></i>
                                         <i 
                                             className="trash alternate icon"
