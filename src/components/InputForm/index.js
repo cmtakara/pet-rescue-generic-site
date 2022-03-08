@@ -109,7 +109,7 @@ const InputForm = () => {
         newAnimal.adoptionstatus = adoptionstatus
         newAnimal.adopter = adopter
         newAnimal.imagename = imagename
-        newAnimal.imageurl = imageurl
+        newAnimal.imageurl = e.target.imageurl.value
         newAnimal.issues = issues
         console.log(newAnimal)
 
