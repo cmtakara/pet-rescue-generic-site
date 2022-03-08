@@ -53,14 +53,18 @@ const UpdatePeople = () => {
 
             {/* <Form fetchStudents={fetchStudents} /> */}
             {/* <Form addStudent={addStudent} editForm={editForm}/> */}
-
+            <div className="overflow-auto">
             <table className="ui celled table">
                 <thead>
                     <tr>
                         <th>Name</th>
+                        <th>Admin</th>
+                        <th>Update Rights</th>
                         <th>Phone Number</th>
                         <th>Email Address</th>
                         <th>Address</th>
+                        <th>Best Contact</th>
+                        <th>Notes</th>
                         <th>Edit</th>
                     </tr>
                 </thead>
@@ -71,9 +75,13 @@ const UpdatePeople = () => {
                             return (
                                 <tr key={person.id}>
                                     <td data-label="Name">{person.name}</td>
+                                    <td data-label="Admin">{person.admin}</td>
+                                    <td data-label="Update Rights">{person.updaterights}</td>
                                     <td data-label="Phone Number">{person.phone}</td>
                                     <td data-label="Email Address">{person.email}</td>
                                     <td data-label="Address">{person.address}</td>
+                                    <td data-label="Best Contact">{person.bestcontact}</td>
+                                    <td data-label="Notes">{person.notes}</td>
                                     <td data-label="edit">
                                         <i 
                                             className="edit icon"
@@ -91,7 +99,7 @@ const UpdatePeople = () => {
 
                 </tbody>
             </table>
-
+            </div>
         </div>
     );
 }

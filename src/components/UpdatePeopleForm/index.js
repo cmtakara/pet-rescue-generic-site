@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 
 const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updatePerson }) => {
     const [name, setName] = useState('')
+    const [bestcontact, setBestcontact] = useState('')
     const [address, setAddress] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -16,16 +17,16 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
     const [adopterstatus, setAdopterstus] = useState('NONE')
     const [volunteertransport, setVolunteertransport] = useState('N')
     const [volunteerevents, setVolunteerevents] = useState('N')
+    const [notes, setNotes] = useState('')
 
     // const [updatePerson, setUpdatePerson] = useState({})
 
     // add all fields, ensure required fields are populated
-    //required fields are: name, 
+    //required fields are: name, admin, updaterights, fosterstatus, volunteerstatus, adopterstatus
+    // char can't be empty/null - volunteertransport, volunteerevents
 
-    // <th>Name</th>
-    // <th>Phone Number</th>
-    // <th>Email Address</th>
-    // <th>Address</th>
+    //bestcontact, notes, admin, updaterights
+
 
 
     const handleSubmit = e => {
@@ -35,6 +36,7 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
 
         const newPerson = {
             name: name,
+            bestcontact: bestcontact,
             phone: phone,
             email: email,
             address: address,
@@ -44,7 +46,8 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
             volunteerstatus: volunteerstatus,
             adopterstatus: adopterstatus,
             volunteertransport: volunteertransport,
-            volunteerevents: volunteerevents
+            volunteerevents: volunteerevents,
+            notes: notes
         }
     
         if (editForm) {
@@ -59,14 +62,6 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
         }
 
         form.reset()
-
-        // const [admin, setAdmin] = useState('N')
-        // const [updaterights, setUpdaterights] = useState('N')
-        // const [fosterstatus, setFosterstatus] = useState('NONE')
-        // const [volunteerstatus, setVolunteerstatus] = useState('NONE')
-        // const [adopterstatus, setAdopterstus] = useState('NONE')
-        // const [volunteertransport, setVolunteertransport] = useState('N')
-        // const [volunteerevents, setVolunteerevents] = useState('N')
 
     }
 
@@ -95,6 +90,31 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
                     onChange={e => setName(e.target.value)}
                 />
             </div>
+            <div className='field'>
+                <label className='ui left aligned container'>Admin Y/N</label>
+                <input
+                    type="text"
+                    name="admin"
+                    placeholder= {editForm ? updatePerson.admin : "Y/N"}
+                    onChange={e => setAdmin(e.target.value)}
+                />
+                <label className='ui left aligned container'>Update Rights Y/N</label>
+                <input
+                    type="text"
+                    name="updaterights"
+                    placeholder= {editForm ? updatePerson.updaterights : "Y/N"}
+                    onChange={e => setUpdaterights(e.target.value)}
+                />
+            </div>     
+            <div className="field">
+                <label className='ui left aligned container'>Best Contact</label>
+                <input
+                    type="text"
+                    name="bestcontact"
+                    placeholder= {editForm ? updatePerson.bestcontact : "Best Contact"}
+                    onChange={e => setBestcontact(e.target.value)}
+                />
+            </div>
             <div className="field">
                 <label className='ui left aligned container'>Phone Number</label>
                 <input
@@ -120,6 +140,15 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
                     name="address"
                     placeholder = {editForm ? updatePerson.address : "Address"}
                     onChange={e => setAddress(e.target.value)}
+                />
+            </div>
+            <div className="field">
+                <label className='ui left aligned container'>Notes</label>
+                <input
+                    type="text"
+                    name="notes"
+                    placeholder = {editForm ? updatePerson.notes : "Notes"}
+                    onChange={e => setNotes(e.target.value)}
                 />
             </div>
             <div className="ui right aligned container">
