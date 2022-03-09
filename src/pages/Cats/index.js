@@ -19,7 +19,7 @@ const Cats = () => {
 
     const fetchCats = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/v1/cats/allcats')
+            const response = await axios.get('https://rescue-backend.herokuapp.com/api/v1/cats/allcats')
 
             console.log(response)
             setAvailableCats(response.data)

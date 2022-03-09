@@ -1,6 +1,6 @@
 # Pet Rescue Template
 
-This is a website created using React.  It is deployed using Heroku and can be found at [Generic Pet rescue](https://pet-rescue-app.herokuapp.com/)
+This is a website created using React.  It is deployed using Heroku and can be found at [Generic Pet rescue](https://updated-pet-rescue-app.herokuapp.com)
 
 ## Wireframes
 
