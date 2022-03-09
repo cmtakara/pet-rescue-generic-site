@@ -226,9 +226,6 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
                     onChange={e => setVolunteerother(e.target.value)}
                 />
             </div>            
-
-
-
             <div className="field">
                 <label className='ui left aligned container'>Adopter Status</label>
                 <input

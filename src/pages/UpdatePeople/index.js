@@ -64,6 +64,17 @@ const UpdatePeople = () => {
                         <th>Email Address</th>
                         <th>Address</th>
                         <th>Best Contact</th>
+                        <th>Foster Status</th>
+                        <th>Foster Availability</th>
+                        <th>Foster Current Animal</th>
+                        <th>Volunteer Status</th>
+                        <th>Volunteer Cleaning</th>
+                        <th>Volunteer Transport</th>
+                        <th>Volunteer for Events</th>
+                        <th>Other Volunteer Availability</th>
+                        <th>Adopter Status</th>
+                        <th>Adopter Animal</th>
+                        <th>Adopter Animal Name</th>
                         <th>Notes</th>
                         <th>Edit</th>
                     </tr>
@@ -81,6 +92,17 @@ const UpdatePeople = () => {
                                     <td data-label="Email Address">{person.email}</td>
                                     <td data-label="Address">{person.address}</td>
                                     <td data-label="Best Contact">{person.bestcontact}</td>
+                                    <td data-label="Foster Status">{person.fosterstatus}</td>
+                                    <td data-label="Foster Availability">{person.fosteravailability}</td>
+                                    <td data-label="Foster Current Animal">{person.fostercurrentanimal}</td>
+                                    <td data-label="Volunteer Status">{person.volunteerstatus}</td>
+                                    <td data-label="Volunteer Cleaning">{person.volunteercleaning}</td>
+                                    <td data-label="Volunteer Transport">{person.volunteertransport}</td>
+                                    <td data-label="Volunteer for Events">{person.volunteerevents}</td>
+                                    <td data-label="Other Volunteer Availability">{person.volunteerother}</td>
+                                    <td data-label="Adopter Status">{person.adopterstatus}</td>
+                                    <td data-label="Adopter Animal">{person.adopteranimaltype}</td>
+                                    <td data-label="Adopter Animal Name">{person.adopteranimalname}</td>
                                     <td data-label="Notes">{person.notes}</td>
                                     <td data-label="edit">
                                         <i 

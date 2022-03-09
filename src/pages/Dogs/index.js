@@ -35,8 +35,10 @@ const Dogs = () => {
                         <div className="card animal-data"  style={{ width: '18rem' }} key={dog.id}>
                             <img src={dog.imageurl} className="animal-img" alt="..." />
                             <div className="card-body  overflow-auto" style={{ height: '18rem' }}>
-                                <h5 className="card-title">{dog.name}</h5>
-                                <h6 className="card-title">{dog.age}</h6>
+                                <h3 className="card-title">{dog.imagename}</h3>
+                                <h5 className="card-title">Name: {dog.name}</h5>
+                                <h6 className="card-title">Age: {dog.age}</h6>
+                                <h6 className="card-title">Part of a bonded set: {dog.bonded}</h6>
                                 <a href="" target="_blank" className="btn btn-primary">More Information</a>
                             </div>
                         </div>
