@@ -48,9 +48,9 @@ const InputForm = () => {
     const addAnimal = async (newAnimal) => {
         // header1 = {'Access-Control-Allow-Origin': '*'}
         // config = {headers: header1}
-        console.log('in try ', `http://localhost:8080/api/v1/${petType}s/add${petType}`, newAnimal)
+        console.log('in try ', `https://rescue-backend.herokuapp.com/api/v1/${petType}s/add${petType}`, newAnimal)
         try {
-            const response = await axios.post(`http://localhost:8080/api/v1/${petType}s/add${petType}`, newAnimal)
+            const response = await axios.post(`https://rescue-backend.herokuapp.com/api/v1/${petType}s/add${petType}`, newAnimal)
             fetchAnimals()
         } catch (err) {
             console.log(err)
@@ -59,7 +59,7 @@ const InputForm = () => {
 
     const fetchAnimals = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/${petType}s/all${petType}s`)
+            const response = await axios.get(`https://rescue-backend.herokuapp.com/api/v1/${petType}s/all${petType}s`)
 
             console.log(response)
             setAvailableCats(response.data)

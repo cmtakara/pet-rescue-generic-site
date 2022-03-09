@@ -79,7 +79,7 @@ const UpdatePeopleForm = ({ fetchPeople, addPerson, setEditForm, editForm, updat
 
     const updatingPerson = async (newPerson, id) => {
         try {
-            const response = await axios.put(`http://localhost:8080/api/v1/people/person/${id}`, newPerson)
+            const response = await axios.put(`https://rescue-backend.herokuapp.com/api/v1/people/person/${id}`, newPerson)
 
             console.log(response)
             // setPeople(response.data)

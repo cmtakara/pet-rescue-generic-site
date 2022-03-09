@@ -13,7 +13,7 @@ const Dogs = () => {
 
     const fetchDogs = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/v1/dogs/alldogs')
+            const response = await axios.get('https://rescue-backend.herokuapp.com/api/v1/dogs/alldogs')
 
             console.log(response)
             setAvailableDogs(response.data)

@@ -15,7 +15,7 @@ const UpdatePeople = () => {
 
     const fetchPeople = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/v1/people/allpeople')
+            const response = await axios.get('https://rescue-backend.herokuapp.com/api/v1/people/allpeople')
 
             console.log(response)
             setPeople(response.data)
@@ -27,7 +27,7 @@ const UpdatePeople = () => {
 
     const addPerson = async (newPerson) => {
         try {
-            const response = await axios.post('http://localhost:8080/api/v1/people/addperson', newPerson)
+            const response = await axios.post('https://rescue-backend.herokuapp.com/api/v1/people/addperson', newPerson)
             fetchPeople()
         } catch(err) {
             console.log(err)
@@ -36,7 +36,7 @@ const UpdatePeople = () => {
 
     const deletePerson = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:8080/api/v1/people/removeperson/${id}`)
+            const response = await axios.delete(`https://rescue-backend.herokuapp.com/api/v1/people/removeperson/${id}`)
             fetchPeople()
         } catch (err) {
             console.log(err)
